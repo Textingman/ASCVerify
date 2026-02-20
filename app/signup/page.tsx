@@ -137,7 +137,7 @@ export default function SignupPage() {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563eb] focus:border-transparent"
+                      className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563eb] focus:border-transparent text-gray-900"
                       placeholder="John Doe"
                     />
                   </div>
@@ -159,7 +159,7 @@ export default function SignupPage() {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563eb] focus:border-transparent"
+                      className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563eb] focus:border-transparent text-gray-900"
                       placeholder="john@company.com"
                     />
                   </div>
@@ -181,7 +181,7 @@ export default function SignupPage() {
                       required
                       value={formData.company}
                       onChange={handleChange}
-                      className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563eb] focus:border-transparent"
+                      className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563eb] focus:border-transparent text-gray-900"
                       placeholder="Acme Inc."
                     />
                   </div>
@@ -202,7 +202,7 @@ export default function SignupPage() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563eb] focus:border-transparent"
+                      className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563eb] focus:border-transparent text-gray-900"
                       placeholder="(555) 123-4567"
                     />
                   </div>
@@ -219,7 +219,7 @@ export default function SignupPage() {
                     rows={4}
                     value={formData.message}
                     onChange={handleChange}
-                    className="block w-full px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563eb] focus:border-transparent"
+                    className="block w-full px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563eb] focus:border-transparent text-gray-900"
                     placeholder="How do you plan to use ASC Verify?"
                   />
                 </div>
@@ -234,27 +234,7 @@ export default function SignupPage() {
                       className="mt-1 h-4 w-4 text-[#2563eb] focus:ring-[#2563eb] border-gray-300 rounded flex-shrink-0"
                     />
                     <label htmlFor="sms-consent" className="ml-3 text-sm leading-relaxed text-gray-700">
-                      I consent to receive text messages from ASC Verify, including form completion reminders, account verification requests, and service updates. Message frequency varies (up to 4 messages per month). Message and data rates may apply. Reply HELP for help or STOP to cancel. By opting in, you agree to our{' '}
-                      <Link href="/terms" className="text-[#e91e63] hover:text-[#c2185b] font-medium">
-                        Terms of Service
-                      </Link>{' '}
-                      and{' '}
-                      <Link href="/privacy" className="text-[#e91e63] hover:text-[#c2185b] font-medium">
-                        Privacy Policy
-                      </Link>
-                      . Consent is not required to use our services.
-                    </label>
-                  </div>
-
-                  {/* Promotional Emails Consent Checkbox */}
-                  <div className="flex items-start">
-                    <input
-                      type="checkbox"
-                      id="promotional-emails"
-                      className="mt-1 h-4 w-4 text-[#2563eb] focus:ring-[#2563eb] border-gray-300 rounded flex-shrink-0"
-                    />
-                    <label htmlFor="promotional-emails" className="ml-3 text-sm leading-relaxed text-gray-700">
-                      I consent to receive promotional emails from ASC Verify. You can unsubscribe at any time by following the unsubscribe link in our emails or by contacting support@ascverify.com.
+                      By checking this box and submitting this form, you agree to receive account notification text messages from ASC Verify. I understand I may opt out of SMS communication by replying 'STOP'. Text HELP for help or contact support@ascverify.com. Message and Data rates may apply. Message frequency may vary. Carriers are not liable for delayed or undelivered messages. Opting in to SMS is optional and not required to submit this form. All messages will be handled by ASC Verify.
                     </label>
                   </div>
 
@@ -302,10 +282,6 @@ export default function SignupPage() {
                     'Get Started'
                   )}
                 </button>
-
-                <p className="text-center text-sm text-gray-500">
-                  Note: Web3Forms integration will be added in a future update.
-                </p>
               </form>
             </>
           )}
@@ -315,7 +291,7 @@ export default function SignupPage() {
       {/* Footer */}
       <footer className="bg-[#3b3a41] text-white py-12 mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-5 gap-8">
             <div>
               <h3 className="text-xl font-bold mb-4">ASC Verify</h3>
               <p className="text-gray-400">
@@ -357,6 +333,14 @@ export default function SignupPage() {
               <p className="text-gray-400">
                 support@ascverify.com
               </p>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">Business Address</h4>
+              <div className="text-gray-400 space-y-1">
+                <p>1776 Broadway, Floor 23</p>
+                <p>New York, New York 10019</p>
+                <p>United States of America</p>
+              </div>
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
