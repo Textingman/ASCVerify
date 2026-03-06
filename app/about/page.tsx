@@ -232,8 +232,8 @@ export default function AboutPage() {
             <div>
               <h4 className="font-semibold mb-4">Business Address</h4>
               <div className="text-gray-400 space-y-1">
-                <p>1776 Broadway, Floor 23</p>
-                <p>New York, New York 10019</p>
+                <p>2000 NE 42nd Ave PMB 1251</p>
+                <p>Portland, OR 97213</p>
                 <p>United States of America</p>
               </div>
             </div>
