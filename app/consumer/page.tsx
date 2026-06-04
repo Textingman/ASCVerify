@@ -286,7 +286,7 @@ export default function ConsumerPage() {
                       className="mt-1 h-4 w-4 text-[#2563eb] focus:ring-[#2563eb] border-gray-300 rounded flex-shrink-0"
                     />
                     <label htmlFor="smsConsent" className="ml-3 text-sm leading-relaxed text-gray-700">
-                      By checking this box, you agree to receive transactional text messages from ASC Verify, including account setup confirmations and opt-in/opt-out confirmations. You may opt out by replying STOP. Text HELP for help or contact support@ascverify.com. Message and data rates may apply. Opting in to SMS is optional and not required to submit this form.
+                      By checking this box and submitting this form, you agree to receive account alert related text messages from ASC Verify. I understand I may opt out of SMS communication by replying STOP. Reply HELP or email <a href="mailto:support@ascverify.com" className="text-[#2563eb] hover:text-[#1d4ed8]">support@ascverify.com</a> for help. Message and data rates may apply. Message frequency varies. Carriers are not liable for delayed or undelivered messages. Opting in to SMS is optional and not required to submit this form or to use our services. All messages will be handled by ASC Verify.
                     </label>
                   </div>
                   <div className="flex items-start">
