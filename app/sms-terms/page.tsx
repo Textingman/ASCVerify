@@ -23,14 +23,12 @@ export default function SmsTermsPage() {
 
           <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">1. SMS Notifications</h2>
           <p className="text-gray-600 mb-6">
-            ASC Verify sends transactional SMS notifications solely to inform users of events and actions that occur within their account. These messages are not promotional or marketing in nature. Examples of transactional notifications include:
+            ASC Verify sends SMS notifications solely for account alert purposes — to inform users of updates and changes to their account. These messages are strictly transactional and are not promotional or marketing in nature. Examples of account alert notifications include:
           </p>
           <ul className="list-disc pl-6 text-gray-600 mb-6 space-y-2">
-            <li>Account verification and identity confirmation alerts</li>
-            <li>Login and access notifications</li>
-            <li>Account status changes</li>
+            <li>Account updates and changes to your account settings</li>
+            <li>Account status changes and important notices</li>
             <li>Security alerts related to your account activity</li>
-            <li>Consent confirmation and opt-in acknowledgments</li>
           </ul>
 
           <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">2. Message Frequency</h2>

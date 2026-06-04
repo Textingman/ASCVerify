@@ -48,7 +48,7 @@ export default function TermsPage() {
 
           <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">3. SMS Communications</h2>
           <p className="text-gray-600 mb-6">
-            ASC Verify may send transactional notifications via SMS to users in connection with activity on their account. These messages are strictly transactional in nature and are sent only to inform users of events or actions that occur within their account, such as verification requests, login alerts, or account status changes. ASC Verify does not send promotional or marketing SMS messages. For full details, please review our <Link href="/sms-terms" className="text-[#2563eb] hover:text-[#1d4ed8] font-medium">SMS Terms</Link>.
+            ASC Verify sends SMS notifications solely for account alert purposes — to inform users of updates and changes to their account. These messages are strictly transactional and are not promotional or marketing in nature. Examples include account updates, account status changes, and security alerts. ASC Verify does not send promotional or marketing SMS messages. For full details, please review our <Link href="/sms-terms" className="text-[#2563eb] hover:text-[#1d4ed8] font-medium">SMS Terms</Link>.
           </p>
 
           <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">3. Account Registration and Security</h2>
