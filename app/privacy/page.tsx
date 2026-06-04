@@ -1,46 +1,11 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import Nav from '../components/Nav';
+import Footer from '../components/Footer';
 
 export default function PrivacyPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-32">
-            <div className="flex items-center">
-              <Link href="/" className="flex-shrink-0">
-                <Image 
-                  src="/ASC Verify.png" 
-                  alt="ASC Verify" 
-                  width={500} 
-                  height={167}
-                  className="h-24 w-auto"
-                />
-              </Link>
-            </div>
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
-                <Link href="/" className="text-gray-600 hover:text-[#2563eb] px-3 py-2 rounded-md text-sm font-medium">
-                  Home
-                </Link>
-                <Link href="/about" className="text-gray-600 hover:text-[#2563eb] px-3 py-2 rounded-md text-sm font-medium">
-                  About
-                </Link>
-                <Link href="/privacy" className="text-gray-900 hover:text-[#2563eb] px-3 py-2 rounded-md text-sm font-medium">
-                  Privacy
-                </Link>
-                <Link href="/terms" className="text-gray-600 hover:text-[#2563eb] px-3 py-2 rounded-md text-sm font-medium">
-                  Terms
-                </Link>
-                <Link href="/signup" className="bg-[#2563eb] text-white hover:bg-[#1d4ed8] px-4 py-2 rounded-md text-sm font-medium">
-                  Get Started
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Nav />
 
       {/* Header */}
       <section className="bg-gradient-to-b from-green-50 to-white py-12">
@@ -202,66 +167,7 @@ export default function PrivacyPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-[#3b3a41] text-white py-12 mt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-5 gap-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4">ASC Verify</h3>
-              <p className="text-gray-400">
-                Carrier-compliant SMS verification for businesses.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Product</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/about" className="text-gray-400 hover:text-white">
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/signup" className="text-gray-400 hover:text-white">
-                    Get Started
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Legal</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/privacy" className="text-gray-400 hover:text-white">
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/terms" className="text-gray-400 hover:text-white">
-                    Terms of Service
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Contact</h4>
-              <p className="text-gray-400">
-                support@ascverify.com
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Business Address</h4>
-              <div className="text-gray-400 space-y-1">
-                <p>2000 NE 42nd Ave PMB 1251</p>
-                <p>Portland, OR 97213</p>
-                <p>United States of America</p>
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 ASC Verify. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

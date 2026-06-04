@@ -1,46 +1,11 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import Nav from '../components/Nav';
+import Footer from '../components/Footer';
 
 export default function TermsPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-32">
-            <div className="flex items-center">
-              <Link href="/" className="flex-shrink-0">
-                <Image 
-                  src="/ASC Verify.png" 
-                  alt="ASC Verify" 
-                  width={500} 
-                  height={167}
-                  className="h-24 w-auto"
-                />
-              </Link>
-            </div>
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
-                <Link href="/" className="text-gray-600 hover:text-[#2563eb] px-3 py-2 rounded-md text-sm font-medium">
-                  Home
-                </Link>
-                <Link href="/about" className="text-gray-600 hover:text-[#2563eb] px-3 py-2 rounded-md text-sm font-medium">
-                  About
-                </Link>
-                <Link href="/privacy" className="text-gray-600 hover:text-[#2563eb] px-3 py-2 rounded-md text-sm font-medium">
-                  Privacy
-                </Link>
-                <Link href="/terms" className="text-gray-900 hover:text-[#2563eb] px-3 py-2 rounded-md text-sm font-medium">
-                  Terms
-                </Link>
-                <Link href="/signup" className="bg-[#2563eb] text-white hover:bg-[#1d4ed8] px-4 py-2 rounded-md text-sm font-medium">
-                  Get Started
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Nav />
 
       {/* Header */}
       <section className="bg-gradient-to-b from-green-50 to-white py-12">
@@ -63,15 +28,28 @@ export default function TermsPage() {
 
           <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">2. Description of Service</h2>
           <p className="text-gray-600 mb-6">
-            ASC Verify provides a carrier-compliant SMS verification platform that allows businesses to verify customer phone numbers through a secure, pass-through verification page. The Service includes:
+            ASC Verify is an identity verification and compliance infrastructure platform designed to help businesses and consumers manage digital identity, consent, and regulatory compliance. Our platform provides a secure, scalable foundation for verifying user identities, managing opt-in consent, and ensuring adherence to applicable laws and carrier regulations.
           </p>
+          <p className="text-gray-600 mb-4">The Service includes, but is not limited to:</p>
           <ul className="list-disc pl-6 text-gray-600 mb-6 space-y-2">
-            <li>SMS verification landing pages</li>
-            <li>Phone number verification flow</li>
+            <li>Identity verification and authentication workflows</li>
+            <li>Consumer consent management and opt-in/opt-out tracking</li>
+            <li>Secure, pass-through verification landing pages</li>
             <li>Parameter preservation and redirect functionality</li>
-            <li>Multi-brand support with customizable styling</li>
-            <li>Carrier-compliant infrastructure</li>
+            <li>Multi-brand support with customizable styling and configuration</li>
+            <li>Carrier-compliant infrastructure and regulatory compliance tooling</li>
+            <li>Business dashboard for managing campaigns, users, and compliance records</li>
+            <li>API access for integrating verification workflows into third-party platforms</li>
+            <li>Audit logging and reporting for compliance documentation</li>
           </ul>
+          <p className="text-gray-600 mb-6">
+            ASC Verify acts as a neutral infrastructure provider. Businesses using the Service are responsible for their own compliance with applicable laws and regulations governing their specific use cases.
+          </p>
+
+          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">3. SMS Communications</h2>
+          <p className="text-gray-600 mb-6">
+            ASC Verify may send transactional notifications via SMS to users in connection with activity on their account. These messages are strictly transactional in nature and are sent only to inform users of events or actions that occur within their account, such as verification requests, login alerts, or account status changes. ASC Verify does not send promotional or marketing SMS messages. For full details, please review our <Link href="/sms-terms" className="text-[#2563eb] hover:text-[#1d4ed8] font-medium">SMS Terms</Link>.
+          </p>
 
           <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">3. Account Registration and Security</h2>
           
@@ -284,66 +262,7 @@ export default function TermsPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-[#3b3a41] text-white py-12 mt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-5 gap-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4">ASC Verify</h3>
-              <p className="text-gray-400">
-                Carrier-compliant SMS verification for businesses.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Product</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/about" className="text-gray-400 hover:text-white">
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/signup" className="text-gray-400 hover:text-white">
-                    Get Started
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Legal</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/privacy" className="text-gray-400 hover:text-white">
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/terms" className="text-gray-400 hover:text-white">
-                    Terms of Service
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Contact</h4>
-              <p className="text-gray-400">
-                support@ascverify.com
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Business Address</h4>
-              <div className="text-gray-400 space-y-1">
-                <p>2000 NE 42nd Ave PMB 1251</p>
-                <p>Portland, OR 97213</p>
-                <p>United States of America</p>
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 ASC Verify. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
