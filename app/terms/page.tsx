@@ -23,7 +23,7 @@ export default function TermsPage() {
           
           <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">1. Acceptance of Terms</h2>
           <p className="text-gray-600 mb-6">
-            By accessing or using ASC Verify's SMS verification service ("Service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, you may not access or use the Service. These Terms apply to all users of the Service, including businesses, developers, and end users.
+            By accessing or using ASC Verify&apos;s identity verification and compliance platform ("Service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, you may not access or use the Service. These Terms apply to all users of the Service, including businesses, developers, and end users.
           </p>
 
           <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">2. Description of Service</h2>
@@ -46,11 +46,6 @@ export default function TermsPage() {
             ASC Verify acts as a neutral infrastructure provider. Businesses using the Service are responsible for their own compliance with applicable laws and regulations governing their specific use cases.
           </p>
 
-          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">3. SMS Communications</h2>
-          <p className="text-gray-600 mb-6">
-            ASC Verify sends SMS notifications solely for account alert purposes — to inform users of updates and changes to their account. These messages are strictly transactional and are not promotional or marketing in nature. Examples include account updates, account status changes, and security alerts. ASC Verify does not send promotional or marketing SMS messages. For full details, please review our <Link href="/sms-terms" className="text-[#2563eb] hover:text-[#1d4ed8] font-medium">SMS Terms</Link>.
-          </p>
-
           <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">3. Account Registration and Security</h2>
           
           <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">3.1 Account Creation</h3>
@@ -68,7 +63,20 @@ export default function TermsPage() {
             You must be at least 18 years old and have the legal capacity to enter into contracts to use the Service. By using the Service, you represent and warrant that you meet these requirements.
           </p>
 
-          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">4. Acceptable Use Policy</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">4. SMS Communications</h2>
+          <p className="text-gray-600 mb-6">
+            ASC Verify sends SMS notifications solely for account alert purposes — to inform users of updates and changes to their account. These messages are strictly transactional and are not promotional or marketing in nature. Examples of account alert notifications include:
+          </p>
+          <ul className="list-disc pl-6 text-gray-600 mb-6 space-y-2">
+            <li>Account updates and changes to your account settings</li>
+            <li>Account status changes and important notices</li>
+            <li>Security alerts related to your account activity</li>
+          </ul>
+          <p className="text-gray-600 mb-6">
+            ASC Verify does not send promotional or marketing SMS messages. Message frequency varies based on account activity. Message and data rates may apply. You may opt out at any time by replying <strong>STOP</strong> to any message. For full details, please review our <Link href="/sms-terms" className="text-[#2563eb] hover:text-[#1d4ed8] font-medium">SMS Terms &amp; Conditions</Link>.
+          </p>
+
+          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">5. Acceptable Use Policy</h2>
           <p className="text-gray-600 mb-4">You agree not to use the Service to:</p>
           <ul className="list-disc pl-6 text-gray-600 mb-6 space-y-2">
             <li>Violate any applicable laws, regulations, or third-party rights</li>
@@ -82,97 +90,97 @@ export default function TermsPage() {
             <li>Violate carrier regulations or 10DLC compliance requirements</li>
           </ul>
 
-          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">5. Compliance with Carrier Requirements</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">6. Compliance with Carrier Requirements</h2>
           
-          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">5.1 10DLC Compliance</h3>
+          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">6.1 10DLC Compliance</h3>
           <p className="text-gray-600 mb-6">
             You agree to comply with all applicable carrier requirements, including 10DLC (10-Digit Long Code) regulations. You are responsible for obtaining proper consent from end users before sending SMS messages and maintaining records of such consent.
           </p>
 
-          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">5.2 Opt-In Requirements</h3>
+          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">6.2 Opt-In Requirements</h3>
           <p className="text-gray-600 mb-6">
             You must obtain explicit opt-in consent from end users before sending them SMS messages through our Service. You must provide clear opt-out mechanisms and honor opt-out requests promptly.
           </p>
 
-          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">5.3 Content Restrictions</h3>
+          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">6.3 Content Restrictions</h3>
           <p className="text-gray-600 mb-6">
             You agree not to send messages containing prohibited content, including but not limited to: illegal content, adult content, gambling, cannabis, firearms, or any content that violates carrier guidelines.
           </p>
 
-          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">6. Fees and Payment</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">7. Fees and Payment</h2>
           
-          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">6.1 Service Fees</h3>
+          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">7.1 Service Fees</h3>
           <p className="text-gray-600 mb-6">
             Fees for the Service will be specified in your account dashboard or service agreement. You agree to pay all applicable fees in accordance with the payment terms presented to you.
           </p>
 
-          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">6.2 Payment Terms</h3>
+          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">7.2 Payment Terms</h3>
           <p className="text-gray-600 mb-6">
             All fees are non-refundable unless otherwise stated. We reserve the right to change our fees at any time with reasonable notice. Continued use of the Service after fee changes constitutes acceptance of the new fees.
           </p>
 
-          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">6.3 Late Payment</h3>
+          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">7.3 Late Payment</h3>
           <p className="text-gray-600 mb-6">
             If payment is not received when due, we may suspend or terminate your access to the Service. You will be responsible for all costs of collection, including reasonable attorney fees.
           </p>
 
-          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">7. Intellectual Property Rights</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">8. Intellectual Property Rights</h2>
           
-          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">7.1 Our Rights</h3>
+          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">8.1 Our Rights</h3>
           <p className="text-gray-600 mb-6">
             The Service and all content, features, and functionality are owned by ASC Verify and are protected by copyright, trademark, and other intellectual property laws. You may not copy, modify, distribute, or create derivative works based on the Service without our express written permission.
           </p>
 
-          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">7.2 Your Content</h3>
+          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">8.2 Your Content</h3>
           <p className="text-gray-600 mb-6">
             You retain ownership of any content you submit through the Service. By submitting content, you grant us a worldwide, non-exclusive, royalty-free license to use, reproduce, and display such content solely for the purpose of providing the Service.
           </p>
 
-          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">7.3 Feedback</h3>
+          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">8.3 Feedback</h3>
           <p className="text-gray-600 mb-6">
             If you provide us with feedback or suggestions about the Service, we may use such feedback without any obligation to you.
           </p>
 
-          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">8. Service Availability and Support</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">9. Service Availability and Support</h2>
           
-          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">8.1 Uptime</h3>
+          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">9.1 Uptime</h3>
           <p className="text-gray-600 mb-6">
             We strive to maintain 99.9% uptime for the Service, but we do not guarantee uninterrupted access. We may perform scheduled maintenance with advance notice when possible.
           </p>
 
-          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">8.2 Support</h3>
+          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">9.2 Support</h3>
           <p className="text-gray-600 mb-6">
             We provide email support during business hours. Response times may vary based on your service plan and the nature of your inquiry.
           </p>
 
-          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">8.3 Service Modifications</h3>
+          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">9.3 Service Modifications</h3>
           <p className="text-gray-600 mb-6">
             We reserve the right to modify, suspend, or discontinue any aspect of the Service at any time with reasonable notice. We will not be liable for any modification, suspension, or discontinuation of the Service.
           </p>
 
-          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">9. Data and Privacy</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">10. Data and Privacy</h2>
           <p className="text-gray-600 mb-6">
             Your use of the Service is also governed by our <Link href="/privacy" className="text-[#2563eb] hover:text-[#1d4ed8] font-medium">Privacy Policy</Link>. By using the Service, you consent to our collection and use of information as described in the Privacy Policy.
           </p>
 
-          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">10. Disclaimers and Limitations of Liability</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">11. Disclaimers and Limitations of Liability</h2>
           
-          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">10.1 Service "As Is"</h3>
+          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">11.1 Service &quot;As Is&quot;</h3>
           <p className="text-gray-600 mb-6">
-            THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.
+            THE SERVICE IS PROVIDED &quot;AS IS&quot; AND &quot;AS AVAILABLE&quot; WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.
           </p>
 
-          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">10.2 Limitation of Liability</h3>
+          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">11.2 Limitation of Liability</h3>
           <p className="text-gray-600 mb-6">
-            TO THE MAXIMUM EXTENT PERMITTED BY LAW, BWO VERIFY SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS OR REVENUES, WHETHER INCURRED DIRECTLY OR INDIRECTLY, OR ANY LOSS OF DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES.
+            TO THE MAXIMUM EXTENT PERMITTED BY LAW, ASC VERIFY SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS OR REVENUES, WHETHER INCURRED DIRECTLY OR INDIRECTLY, OR ANY LOSS OF DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES.
           </p>
 
-          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">10.3 Maximum Liability</h3>
+          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">11.3 Maximum Liability</h3>
           <p className="text-gray-600 mb-6">
             Our total liability to you for all claims arising from or related to the Service shall not exceed the amount you paid us in the twelve (12) months preceding the claim.
           </p>
 
-          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">11. Indemnification</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">12. Indemnification</h2>
           <p className="text-gray-600 mb-6">
             You agree to indemnify, defend, and hold harmless ASC Verify and its officers, directors, employees, and agents from any claims, liabilities, damages, losses, and expenses (including reasonable attorney fees) arising from:
           </p>
@@ -183,73 +191,73 @@ export default function TermsPage() {
             <li>Your violation of applicable laws or regulations</li>
           </ul>
 
-          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">12. Termination</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">13. Termination</h2>
           
-          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">12.1 Termination by You</h3>
+          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">13.1 Termination by You</h3>
           <p className="text-gray-600 mb-6">
             You may terminate your account at any time by contacting us. Upon termination, your right to use the Service will immediately cease.
           </p>
 
-          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">12.2 Termination by Us</h3>
+          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">13.2 Termination by Us</h3>
           <p className="text-gray-600 mb-6">
             We may suspend or terminate your access to the Service at any time, with or without cause, with or without notice. Reasons for termination may include violation of these Terms, non-payment, or any conduct that we believe is harmful to other users or the Service.
           </p>
 
-          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">12.3 Effect of Termination</h3>
+          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">13.3 Effect of Termination</h3>
           <p className="text-gray-600 mb-6">
             Upon termination, all licenses and rights granted to you will immediately cease. Provisions that by their nature should survive termination shall survive, including ownership provisions, warranty disclaimers, and limitations of liability.
           </p>
 
-          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">13. Dispute Resolution</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">14. Dispute Resolution</h2>
           
-          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">13.1 Informal Resolution</h3>
+          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">14.1 Informal Resolution</h3>
           <p className="text-gray-600 mb-6">
             Before filing a claim, you agree to contact us and attempt to resolve the dispute informally by sending a written notice describing the dispute and your proposed resolution.
           </p>
 
-          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">13.2 Arbitration</h3>
+          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">14.2 Arbitration</h3>
           <p className="text-gray-600 mb-6">
             If we cannot resolve the dispute informally, any dispute arising from these Terms or the Service shall be resolved through binding arbitration in accordance with the rules of the American Arbitration Association.
           </p>
 
-          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">13.3 Class Action Waiver</h3>
+          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">14.3 Class Action Waiver</h3>
           <p className="text-gray-600 mb-6">
             You agree that any dispute resolution proceedings will be conducted only on an individual basis and not in a class, consolidated, or representative action.
           </p>
 
-          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">14. General Provisions</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">15. General Provisions</h2>
           
-          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">14.1 Governing Law</h3>
+          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">15.1 Governing Law</h3>
           <p className="text-gray-600 mb-6">
             These Terms shall be governed by and construed in accordance with the laws of the United States, without regard to its conflict of law provisions.
           </p>
 
-          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">14.2 Entire Agreement</h3>
+          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">15.2 Entire Agreement</h3>
           <p className="text-gray-600 mb-6">
-            These Terms, together with our Privacy Policy, constitute the entire agreement between you and ASC Verify regarding the Service and supersede all prior agreements.
+            These Terms, together with our Privacy Policy and SMS Terms, constitute the entire agreement between you and ASC Verify regarding the Service and supersede all prior agreements.
           </p>
 
-          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">14.3 Severability</h3>
+          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">15.3 Severability</h3>
           <p className="text-gray-600 mb-6">
             If any provision of these Terms is found to be unenforceable, the remaining provisions will continue in full force and effect.
           </p>
 
-          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">14.4 Waiver</h3>
+          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">15.4 Waiver</h3>
           <p className="text-gray-600 mb-6">
             Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights.
           </p>
 
-          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">14.5 Assignment</h3>
+          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">15.5 Assignment</h3>
           <p className="text-gray-600 mb-6">
             You may not assign or transfer these Terms or your rights under these Terms without our prior written consent. We may assign these Terms without restriction.
           </p>
 
-          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">15. Changes to Terms</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">16. Changes to Terms</h2>
           <p className="text-gray-600 mb-6">
-            We reserve the right to modify these Terms at any time. We will notify you of material changes by posting the updated Terms on our website and updating the "Last Updated" date. Your continued use of the Service after changes become effective constitutes acceptance of the modified Terms.
+            We reserve the right to modify these Terms at any time. We will notify you of material changes by posting the updated Terms on our website and updating the &quot;Last Updated&quot; date. Your continued use of the Service after changes become effective constitutes acceptance of the modified Terms.
           </p>
 
-          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">16. Contact Information</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">17. Contact Information</h2>
           <p className="text-gray-600 mb-4">
             If you have any questions about these Terms, please contact us:
           </p>
