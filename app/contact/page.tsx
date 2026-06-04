@@ -61,10 +61,10 @@ export default function ContactPage() {
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-1">Phone Support</h3>
                   <a
-                    href="tel:+15551234567"
+                    href="tel:+18444353969"
                     className="text-2xl font-bold text-[#2563eb] hover:text-[#1d4ed8] transition-colors"
                   >
-                    (555) 123-4567
+                    (844) 435-3969
                   </a>
                   <p className="text-gray-500 text-sm mt-1">Monday – Friday, 9am – 6pm ET</p>
                 </div>
@@ -103,32 +103,6 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Quick Links */}
-            <div className="mt-12 bg-gray-50 rounded-2xl p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Links</h3>
-              <ul className="space-y-3">
-                <li>
-                  <Link href="/business" className="text-[#2563eb] hover:text-[#1d4ed8] font-medium flex items-center gap-2">
-                    → For Businesses — Get started with verification
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/consumer" className="text-[#2563eb] hover:text-[#1d4ed8] font-medium flex items-center gap-2">
-                    → For Consumers — Protect your privacy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/privacy" className="text-[#2563eb] hover:text-[#1d4ed8] font-medium flex items-center gap-2">
-                    → Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/terms" className="text-[#2563eb] hover:text-[#1d4ed8] font-medium flex items-center gap-2">
-                    → Terms of Service
-                  </Link>
-                </li>
-              </ul>
-            </div>
           </div>
 
           {/* Contact Form */}

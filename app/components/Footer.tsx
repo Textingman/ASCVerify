@@ -62,7 +62,7 @@ export default function Footer() {
               support@ascverify.com
             </p>
             <p className="text-gray-400 mt-2">
-              (555) 123-4567
+              (844) 435-3969
             </p>
           </div>
           <div>
@@ -88,10 +88,13 @@ export default function Footer() {
                 <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.025-3.063-1.868-3.063-1.869 0-2.155 1.46-2.155 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.381-1.563 2.844-1.563 3.042 0 3.604 2.002 3.604 4.604v5.592z"/>
               </svg>
             </a>
-            {/* Google — link to be added later */}
-            <span
+            {/* Google */}
+            <a
+              href="https://share.google/HKFb8VTLIqF1AwcWv"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="Google"
-              className="transition-colors cursor-not-allowed opacity-50"
+              className="hover:text-white transition-colors"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M21.805 10.023h-9.78v3.954h5.617c-.242 1.237-.977 2.286-2.08 2.988v2.484h3.368c1.97-1.816 3.105-4.49 3.105-7.426 0-.51-.046-1.002-.13-1.5z" fill="#4285F4"/>
@@ -99,7 +102,7 @@ export default function Footer() {
                 <path d="M6.655 14.088A5.99 5.99 0 0 1 6.34 12c0-.724.124-1.428.315-2.088V7.349H3.18A9.997 9.997 0 0 0 2.025 12c0 1.614.387 3.14 1.155 4.651l3.475-2.563z" fill="#FBBC05"/>
                 <path d="M12.025 5.959c1.406 0 2.668.483 3.661 1.432l2.747-2.747C16.984 3.205 14.721 2 12.025 2A9.997 9.997 0 0 0 3.18 7.349l3.475 2.563c.757-2.266 2.873-3.953 5.37-3.953z" fill="#EA4335"/>
               </svg>
-            </span>
+            </a>
           </div>
           <p>&copy; 2025 ASC Verify. All rights reserved.</p>
         </div>
