@@ -73,6 +73,8 @@ const taskTypes = [
   { icon: Home, label: 'Home Services' },
   { icon: Plane, label: 'Travel Planning' },
   { icon: Search, label: 'Research & Decisions' },
+  { icon: Shield, label: 'Insurance Claims' },
+  { icon: Bell, label: 'Benefits Paperwork' },
 ];
 
 const steps = [

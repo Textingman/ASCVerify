@@ -19,6 +19,7 @@ const services = [
   { icon: Plane, label: 'Travel Planning', desc: 'Flight and hotel booking, itinerary creation, restaurant reservations, and full trip coordination.' },
   { icon: Ticket, label: 'Events & Tickets', desc: 'Tickets to local and national attractions, concerts, sporting events, and entertainment.' },
   { icon: Search, label: 'Research & Information', desc: 'Product comparisons, vendor recommendations, best options research, and information gathering.' },
+  { icon: Shield, label: 'Insurance & Benefits Paperwork', desc: 'Filing insurance claims, navigating benefits paperwork, and handling documentation for all your employee benefits.' },
 ];
 
 const steps = [
