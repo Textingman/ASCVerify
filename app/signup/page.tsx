@@ -1,369 +1,274 @@
 'use client';
 
-import Link from 'next/link';
-import Image from 'next/image';
 import { useState } from 'react';
-import { Mail, Building, Phone, User } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
+
+const NAVY = '#0f2744';
+const ACCENT = '#0d9488';
+const ACCENT_BG = '#f0fdfa';
+const IVORY = '#faf8f4';
+
+type Step = 1 | 2 | 3;
 
 export default function SignupPage() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    phone: '',
-    message: ''
+  const [step, setStep] = useState<Step>(1);
+  const [done, setDone] = useState(false);
+  const [error, setError] = useState('');
+
+  const [su, setSu] = useState({
+    firstName: '', lastName: '', workEmail: '', employerId: '', accessCode: '',
+    phone: '', smsOptIn: false,
+    password: '', confirmPassword: '', termsAccepted: false, privacyAccepted: false,
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // TODO: Integrate with Web3Forms later
-    // For now, just simulate submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', company: '', phone: '', message: '' });
-    }, 1500);
+  const inputStyle = {
+    background: '#fff',
+    border: '1px solid #e8e4dc',
+    color: NAVY,
+    width: '100%',
+    borderRadius: '12px',
+    padding: '12px 16px',
+    fontSize: '14px',
+    outline: 'none',
+  };
+  const labelStyle = { color: '#6b7280', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase' as const, letterSpacing: '0.08em' };
+
+  const Checkbox = ({ checked, onChange, children }: { checked: boolean; onChange: () => void; children: React.ReactNode }) => (
+    <label className="flex items-start gap-3 cursor-pointer">
+      <div
+        className="w-5 h-5 rounded flex items-center justify-center flex-shrink-0 mt-0.5 transition-all"
+        style={{ background: checked ? ACCENT : '#fff', border: checked ? 'none' : '1px solid #e8e4dc' }}
+        onClick={onChange}
+      >
+        {checked && <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>}
+      </div>
+      <span className="text-sm leading-relaxed text-gray-600">{children}</span>
+    </label>
+  );
+
+  const handleStep1 = () => {
+    setError('');
+    if (!su.firstName || !su.lastName || !su.workEmail || !su.employerId || !su.accessCode) { setError('Please fill in all fields.'); return; }
+    if (!su.workEmail.includes('@')) { setError('Please enter a valid work email.'); return; }
+    setStep(2);
+  };
+  const handleStep2 = () => {
+    setError('');
+    if (!su.phone) { setError('Please enter your mobile phone number.'); return; }
+    setStep(3);
+  };
+  const handleStep3 = () => {
+    setError('');
+    if (!su.password || !su.confirmPassword) { setError('Please enter and confirm your password.'); return; }
+    if (su.password.length < 8) { setError('Password must be at least 8 characters.'); return; }
+    if (su.password !== su.confirmPassword) { setError('Passwords do not match.'); return; }
+    if (!su.termsAccepted) { setError('You must accept the Terms of Service.'); return; }
+    if (!su.privacyAccepted) { setError('You must accept the Privacy Policy.'); return; }
+    setDone(true);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+  const steps = [
+    { n: 1, label: 'Identity' },
+    { n: 2, label: 'Opt-Ins' },
+    { n: 3, label: 'Password' },
+  ];
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-32">
-            <div className="flex items-center">
-              <Link href="/" className="flex-shrink-0">
-                <Image 
-                  src="/ASC Verify.png" 
-                  alt="ASC Verify" 
-                  width={500} 
-                  height={167}
-                  className="h-24 w-auto"
-                />
+    <div className="min-h-screen flex items-center justify-center px-4 py-16" style={{ background: IVORY }}>
+      <div className="w-full max-w-md">
+
+        {/* Card */}
+        <div className="rounded-2xl overflow-hidden" style={{ background: '#fff', border: '1px solid #e8e4dc', boxShadow: '0 4px 24px rgba(15,39,68,0.08)' }}>
+          <div className="h-1 w-full" style={{ background: `linear-gradient(90deg, ${NAVY}, ${ACCENT})` }} />
+
+          <div className="p-8 sm:p-10">
+            {/* Logo */}
+            <div className="flex justify-center mb-6">
+              <Link href="/">
+                <Image src="/ASC Verify Logo.png" alt="ASC Verify" width={160} height={54} className="h-12 w-auto" />
               </Link>
             </div>
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
-                <Link href="/" className="text-gray-600 hover:text-[#2563eb] px-3 py-2 rounded-md text-sm font-medium">
-                  Home
-                </Link>
-                <Link href="/about" className="text-gray-600 hover:text-[#2563eb] px-3 py-2 rounded-md text-sm font-medium">
-                  About
-                </Link>
-                <Link href="/privacy" className="text-gray-600 hover:text-[#2563eb] px-3 py-2 rounded-md text-sm font-medium">
-                  Privacy
-                </Link>
-                <Link href="/terms" className="text-gray-600 hover:text-[#2563eb] px-3 py-2 rounded-md text-sm font-medium">
-                  Terms
-                </Link>
-                <Link href="/signup" className="bg-[#2563eb] text-white hover:bg-[#1d4ed8] px-4 py-2 rounded-md text-sm font-medium">
-                  Get Started
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-b from-green-50 to-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl font-extrabold text-gray-900 mb-4">
-              Get Started with ASC Verify
-            </h1>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Fill out the form below and we'll get back to you within 24 hours to set up your account.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Form Section */}
-      <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
-          {submitStatus === 'success' ? (
-            <div className="text-center py-12">
-              <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-              </div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Thank You!</h2>
-              <p className="text-lg text-gray-600 mb-8">
-                We've received your request. Our team will contact you within 24 hours to get you started.
-              </p>
-              <Link
-                href="/"
-                className="inline-block px-6 py-3 bg-[#2563eb] text-white font-semibold rounded-lg hover:bg-[#1d4ed8] transition-colors"
-              >
-                Return to Home
-              </Link>
-            </div>
-          ) : (
-            <>
-              <div className="mb-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-2">Sign Up for ASC Verify</h2>
-                <p className="text-gray-600">
-                  Complete the form below to start verifying your customers with confidence.
-                </p>
-              </div>
-
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Name Field */}
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                    Full Name *
-                  </label>
-                  <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                      <User className="h-5 w-5 text-gray-400" />
+            {!done && (
+              <>
+                {/* Step indicator */}
+                <div className="flex items-center justify-center gap-2 mb-8">
+                  {steps.map((s, i) => (
+                    <div key={s.n} className="flex items-center gap-2">
+                      <div className="flex flex-col items-center">
+                        <div
+                          className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all"
+                          style={{
+                            background: step >= s.n ? NAVY : '#f3f4f6',
+                            color: step >= s.n ? 'white' : '#9ca3af',
+                            border: step === s.n ? `2px solid ${ACCENT}` : '2px solid transparent',
+                          }}
+                        >
+                          {step > s.n ? <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg> : s.n}
+                        </div>
+                        <span className="text-xs mt-1" style={{ color: step >= s.n ? NAVY : '#9ca3af' }}>{s.label}</span>
+                      </div>
+                      {i < steps.length - 1 && <div className="w-6 h-px mb-4" style={{ background: step > s.n ? ACCENT : '#e8e4dc' }} />}
                     </div>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      required
-                      value={formData.name}
-                      onChange={handleChange}
-                      className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563eb] focus:border-transparent"
-                      placeholder="John Doe"
-                    />
-                  </div>
+                  ))}
                 </div>
 
-                {/* Email Field */}
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    Business Email *
-                  </label>
-                  <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                      <Mail className="h-5 w-5 text-gray-400" />
-                    </div>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563eb] focus:border-transparent"
-                      placeholder="john@company.com"
-                    />
+                {/* Error */}
+                {error && (
+                  <div className="mb-5 px-4 py-3 rounded-xl text-sm text-red-700" style={{ background: '#fef2f2', border: '1px solid #fecaca' }}>
+                    {error}
+                  </div>
+                )}
+              </>
+            )}
+
+            {/* ── STEP 1: Identity ── */}
+            {!done && step === 1 && (
+              <div>
+                <h1 className="text-xl font-bold mb-1" style={{ color: NAVY }}>Create your account</h1>
+                <p className="text-sm mb-5 text-gray-500">Enter your employee information to get started.</p>
+
+                <div className="grid grid-cols-2 gap-3 mb-4">
+                  <div>
+                    <label className="block mb-1.5" style={labelStyle}>First Name</label>
+                    <input type="text" value={su.firstName} onChange={e => setSu({ ...su, firstName: e.target.value })} placeholder="Jane" style={inputStyle} />
+                  </div>
+                  <div>
+                    <label className="block mb-1.5" style={labelStyle}>Last Name</label>
+                    <input type="text" value={su.lastName} onChange={e => setSu({ ...su, lastName: e.target.value })} placeholder="Smith" style={inputStyle} />
                   </div>
                 </div>
-
-                {/* Company Field */}
-                <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
-                    Company Name *
-                  </label>
-                  <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                      <Building className="h-5 w-5 text-gray-400" />
-                    </div>
-                    <input
-                      type="text"
-                      id="company"
-                      name="company"
-                      required
-                      value={formData.company}
-                      onChange={handleChange}
-                      className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563eb] focus:border-transparent"
-                      placeholder="Acme Inc."
-                    />
-                  </div>
+                <div className="mb-4">
+                  <label className="block mb-1.5" style={labelStyle}>Work Email</label>
+                  <input type="email" value={su.workEmail} onChange={e => setSu({ ...su, workEmail: e.target.value })} placeholder="jane@company.com" style={inputStyle} />
                 </div>
-
-                {/* Phone Field */}
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                    Phone Number (Optional)
-                  </label>
-                  <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                      <Phone className="h-5 w-5 text-gray-400" />
-                    </div>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563eb] focus:border-transparent"
-                      placeholder="(555) 123-4567"
-                    />
-                  </div>
+                <div className="mb-4">
+                  <label className="block mb-1.5" style={labelStyle}>Employer ID</label>
+                  <input type="text" value={su.employerId} onChange={e => setSu({ ...su, employerId: e.target.value })} placeholder="EMP-12345" style={inputStyle} />
+                  <p className="text-xs mt-1 text-gray-400">Found on your employee badge or HR portal</p>
                 </div>
-
-                {/* Message Field */}
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                    Tell us about your use case (Optional)
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={4}
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="block w-full px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563eb] focus:border-transparent"
-                    placeholder="How do you plan to use ASC Verify?"
-                  />
+                <div className="mb-6">
+                  <label className="block mb-1.5" style={labelStyle}>Access Code</label>
+                  <input type="text" value={su.accessCode} onChange={e => setSu({ ...su, accessCode: e.target.value })} placeholder="e.g. ACME-2025" style={inputStyle} />
+                  <p className="text-xs mt-1 text-gray-400">Provided by your HR department or benefits administrator</p>
                 </div>
-
-                {/* Consent Checkboxes */}
-                <div className="space-y-4">
-                  {/* Text Message Consent Checkbox */}
-                  <div className="flex items-start">
-                    <input
-                      type="checkbox"
-                      id="sms-consent"
-                      className="mt-1 h-4 w-4 text-[#2563eb] focus:ring-[#2563eb] border-gray-300 rounded flex-shrink-0"
-                    />
-                    <label htmlFor="sms-consent" className="ml-3 text-sm leading-relaxed text-gray-700">
-                      I consent to receive text messages from ASC Verify, including form completion reminders, account verification requests, and service updates. Message frequency varies (up to 4 messages per month). Message and data rates may apply. Reply HELP for help or STOP to cancel. By opting in, you agree to our{' '}
-                      <Link href="/terms" className="text-[#e91e63] hover:text-[#c2185b] font-medium">
-                        Terms of Service
-                      </Link>{' '}
-                      and{' '}
-                      <Link href="/privacy" className="text-[#e91e63] hover:text-[#c2185b] font-medium">
-                        Privacy Policy
-                      </Link>
-                      . Consent is not required to use our services.
-                    </label>
-                  </div>
-
-                  {/* Promotional Emails Consent Checkbox */}
-                  <div className="flex items-start">
-                    <input
-                      type="checkbox"
-                      id="promotional-emails"
-                      className="mt-1 h-4 w-4 text-[#2563eb] focus:ring-[#2563eb] border-gray-300 rounded flex-shrink-0"
-                    />
-                    <label htmlFor="promotional-emails" className="ml-3 text-sm leading-relaxed text-gray-700">
-                      I consent to receive promotional emails from ASC Verify. You can unsubscribe at any time by following the unsubscribe link in our emails or by contacting support@ascverify.com.
-                    </label>
-                  </div>
-
-                  {/* Terms & Privacy Policy Checkbox */}
-                  <div className="flex items-start">
-                    <input
-                      type="checkbox"
-                      id="terms-consent"
-                      required
-                      className="mt-1 h-4 w-4 text-[#2563eb] focus:ring-[#2563eb] border-gray-300 rounded flex-shrink-0"
-                    />
-                    <label htmlFor="terms-consent" className="ml-3 text-sm leading-relaxed text-gray-700">
-                      I agree to the{' '}
-                      <Link href="/terms" className="text-[#e91e63] hover:text-[#c2185b] font-medium">
-                        Terms & Conditions
-                      </Link>{' '}
-                      and{' '}
-                      <Link href="/privacy" className="text-[#e91e63] hover:text-[#c2185b] font-medium">
-                        Privacy Policy
-                      </Link>
-                      . *
-                    </label>
-                  </div>
-                </div>
-
-                {/* Submit Button */}
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className={`w-full py-4 px-6 rounded-lg text-lg font-semibold transition-all ${
-                    isSubmitting
-                      ? 'bg-gray-400 cursor-not-allowed'
-                      : 'bg-[#2563eb] hover:bg-[#1d4ed8] text-white shadow-lg hover:shadow-xl'
-                  }`}
-                >
-                  {isSubmitting ? (
-                    <span className="flex items-center justify-center">
-                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                      </svg>
-                      Submitting...
-                    </span>
-                  ) : (
-                    'Get Started'
-                  )}
+                <button onClick={handleStep1} className="w-full py-4 rounded-xl text-base font-semibold text-white flex items-center justify-center gap-2" style={{ background: NAVY }}>
+                  Continue <ArrowRight className="w-4 h-4" />
                 </button>
+              </div>
+            )}
 
-                <p className="text-center text-sm text-gray-500">
-                  Note: Web3Forms integration will be added in a future update.
+            {/* ── STEP 2: Opt-Ins ── */}
+            {!done && step === 2 && (
+              <div>
+                <h1 className="text-xl font-bold mb-1" style={{ color: NAVY }}>Communication preferences</h1>
+                <p className="text-sm mb-5 text-gray-500">Choose how you&apos;d like to receive concierge updates.</p>
+
+                <div className="mb-5">
+                  <label className="block mb-1.5" style={labelStyle}>Mobile Phone Number</label>
+                  <input type="tel" value={su.phone} onChange={e => setSu({ ...su, phone: e.target.value })} placeholder="(555) 000-0000" style={inputStyle} />
+                </div>
+
+                {/* SMS opt-in — optional */}
+                <div className="mb-2 rounded-xl p-1.5 text-center" style={{ background: '#f3f4f6' }}>
+                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-widest">Optional — SMS Updates</p>
+                </div>
+                <div className="mb-4 rounded-xl p-4" style={{ background: ACCENT_BG, border: `1px solid ${ACCENT}30` }}>
+                  <Checkbox checked={su.smsOptIn} onChange={() => setSu({ ...su, smsOptIn: !su.smsOptIn })}>
+                    <span>
+                      By checking this box and submitting this form, you agree to receive concierge service text messages from ASC Verify and agree to our <Link href="/terms" className="underline" style={{ color: NAVY }}>Terms &amp; Conditions</Link> and <Link href="/privacy" className="underline" style={{ color: NAVY }}>Privacy Policy</Link>. I understand I may opt out of SMS communication by replying &apos;STOP&apos;. Reply HELP or email <a href="mailto:support@ascverify.com" className="underline" style={{ color: NAVY }}>support@ascverify.com</a> for help. Message and Data rates may apply. Message frequency varies. Carriers are not liable for delayed or undelivered messages. Opting in to SMS is optional and not required to submit this form or to use our services. All messages will be handled by ASC Verify. I also agree to the <Link href="/terms" className="underline" style={{ color: NAVY }}>Terms of Service</Link> and <Link href="/privacy" className="underline" style={{ color: NAVY }}>Privacy Policy</Link>.
+                    </span>
+                  </Checkbox>
+                </div>
+                <p className="text-xs text-gray-400 mb-5 text-center">
+                  SMS is optional. Check the box above only if you&apos;d like task updates sent to your phone.
                 </p>
-              </form>
-            </>
-          )}
-        </div>
-      </section>
 
-      {/* Footer */}
-      <footer className="bg-[#3b3a41] text-white py-12 mt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4">ASC Verify</h3>
-              <p className="text-gray-400">
-                Carrier-compliant SMS verification for businesses.
+                <div className="flex gap-3">
+                  <button onClick={() => setStep(1)} className="flex-1 py-4 rounded-xl text-base font-semibold" style={{ background: '#fff', border: '1px solid #e8e4dc', color: '#6b7280' }}>← Back</button>
+                  <button onClick={handleStep2} className="flex-1 py-4 rounded-xl text-base font-semibold text-white flex items-center justify-center gap-2" style={{ background: NAVY }}>
+                    Continue <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* ── STEP 3: Password ── */}
+            {!done && step === 3 && (
+              <div>
+                <h1 className="text-xl font-bold mb-1" style={{ color: NAVY }}>Set your password</h1>
+                <p className="text-sm mb-5 text-gray-500">Choose a secure password for your account.</p>
+
+                <div className="mb-4">
+                  <label className="block mb-1.5" style={labelStyle}>Password</label>
+                  <input type="password" value={su.password} onChange={e => setSu({ ...su, password: e.target.value })} placeholder="Min. 8 characters" style={inputStyle} />
+                </div>
+                <div className="mb-5">
+                  <label className="block mb-1.5" style={labelStyle}>Confirm Password</label>
+                  <input type="password" value={su.confirmPassword} onChange={e => setSu({ ...su, confirmPassword: e.target.value })} placeholder="Re-enter password" style={inputStyle} />
+                </div>
+
+                <div className="space-y-3 mb-6">
+                  <Checkbox checked={su.termsAccepted} onChange={() => setSu({ ...su, termsAccepted: !su.termsAccepted })}>
+                    I have read and agree to the{' '}
+                    <Link href="/terms" className="underline text-gray-600">Terms of Service</Link>.
+                  </Checkbox>
+                  <Checkbox checked={su.privacyAccepted} onChange={() => setSu({ ...su, privacyAccepted: !su.privacyAccepted })}>
+                    I have read and agree to the{' '}
+                    <Link href="/privacy" className="underline text-gray-600">Privacy Policy</Link>.
+                  </Checkbox>
+                </div>
+
+                <div className="flex gap-3">
+                  <button onClick={() => setStep(2)} className="flex-1 py-4 rounded-xl text-base font-semibold" style={{ background: '#fff', border: '1px solid #e8e4dc', color: '#6b7280' }}>← Back</button>
+                  <button onClick={handleStep3} className="flex-1 py-4 rounded-xl text-base font-semibold text-white" style={{ background: NAVY }}>Create Account</button>
+                </div>
+              </div>
+            )}
+
+            {/* ── SUCCESS ── */}
+            {done && (
+              <div className="text-center py-4">
+                <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5" style={{ background: ACCENT_BG }}>
+                  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke={ACCENT} strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                </div>
+                <h2 className="text-xl font-bold mb-2" style={{ color: NAVY }}>You&apos;re all set!</h2>
+                <p className="text-sm mb-6 text-gray-500">
+                  Your account has been created.{su.smsOptIn ? ' You\'ll receive a confirmation text shortly.' : ''} Sign in to submit your first concierge request.
+                </p>
+                <Link href="/login" className="w-full py-4 rounded-xl text-base font-semibold text-white flex items-center justify-center gap-2" style={{ background: NAVY }}>
+                  Sign In <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            )}
+
+            {/* Footer */}
+            {!done && (
+              <div className="mt-6 pt-6 text-center" style={{ borderTop: '1px solid #e8e4dc' }}>
+                <p className="text-sm text-gray-500">
+                  Already have an account?{' '}
+                  <Link href="/login" className="font-semibold hover:underline" style={{ color: NAVY }}>Sign in →</Link>
+                </p>
+              </div>
+            )}
+
+            <div className="mt-4 text-center">
+              <p className="text-xs text-gray-400">
+                <svg className="w-3.5 h-3.5 inline mr-1 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+                Secured by ASC Verify
               </p>
             </div>
-            <div>
-              <h4 className="font-semibold mb-4">Product</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/about" className="text-gray-400 hover:text-white">
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/signup" className="text-gray-400 hover:text-white">
-                    Get Started
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Legal</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/privacy" className="text-gray-400 hover:text-white">
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/terms" className="text-gray-400 hover:text-white">
-                    Terms of Service
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Contact</h4>
-              <p className="text-gray-400">
-                support@ascverify.com
-              </p>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 ASC Verify. All rights reserved.</p>
           </div>
         </div>
-      </footer>
+
+        <p className="text-center text-xs text-gray-400 mt-6">
+          <Link href="/" className="hover:underline">← Back to home</Link>
+        </p>
+      </div>
     </div>
   );
 }

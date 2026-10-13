@@ -1,248 +1,254 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { CheckCircle, Zap, Users } from 'lucide-react';
+import {
+  Calendar, ShoppingCart, Car, GraduationCap, Home, Plane, Ticket, Search,
+  Clock, Star, Shield, ArrowRight, MessageSquare, CheckCircle2
+} from 'lucide-react';
+
+const ACCENT = '#0d9488';
+const ACCENT_BG = '#f0fdfa';
+const NAVY = '#0f2744';
+const IVORY = '#faf8f4';
+
+const services = [
+  { icon: Calendar, label: 'Healthcare Scheduling', desc: 'Doctor appointments, specialist referrals, prescription refills, and medical record requests.' },
+  { icon: ShoppingCart, label: 'Grocery & Errands', desc: 'Grocery ordering, dry cleaning pickup, package shipping, and everyday errand running.' },
+  { icon: Car, label: 'Transportation', desc: 'Gas fill-ups, vehicle maintenance scheduling, and coordinating rides and transportation needs.' },
+  { icon: GraduationCap, label: 'Family Support', desc: 'School drop-offs and pickups, childcare coordination, tutoring research, and family scheduling.' },
+  { icon: Home, label: 'Home Services', desc: 'Wait at home for repairs, installations, and deliveries. We coordinate contractors and service providers.' },
+  { icon: Plane, label: 'Travel Planning', desc: 'Flight and hotel booking, itinerary creation, restaurant reservations, and full trip coordination.' },
+  { icon: Ticket, label: 'Events & Tickets', desc: 'Tickets to local and national attractions, concerts, sporting events, and entertainment.' },
+  { icon: Search, label: 'Research & Information', desc: 'Product comparisons, vendor recommendations, best options research, and information gathering.' },
+];
+
+const steps = [
+  { n: '1', title: 'Sign In', body: 'Access your employee concierge portal with your company credentials.' },
+  { n: '2', title: 'Send a Request', body: 'Text or type any task — big or small. No request is too simple or complex.' },
+  { n: '3', title: 'We Handle It', body: 'Your dedicated concierge takes care of everything while you focus on what matters.' },
+  { n: '4', title: 'Done', body: 'Get real-time updates and confirmation when your task is complete.' },
+];
+
+const NAV_LINKS = [
+  { href: '/product', label: 'Product' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+];
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 to-white">
-      {/* Navigation */}
-      <nav className="bg-white shadow-sm">
+    <div className="min-h-screen" style={{ background: IVORY, color: NAVY }}>
+
+      {/* ── Navigation ── */}
+      <nav style={{ background: '#fff', borderBottom: '1px solid #e8e4dc' }} className="sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-32">
-            <div className="flex items-center">
-              <Link href="/" className="flex-shrink-0">
-                <Image 
-                  src="/ASC Verify.png" 
-                  alt="ASC Verify" 
-                  width={500} 
-                  height={167}
-                  className="h-24 w-auto"
-                  priority
-                />
-              </Link>
+          <div className="flex justify-between items-center h-20">
+            <Link href="/" className="flex-shrink-0">
+              <Image src="/ASC Verify Logo.png" alt="ASC Verify" width={500} height={167} className="h-14 w-auto" priority />
+            </Link>
+            <div className="hidden md:flex items-center gap-6">
+              {NAV_LINKS.map(l => (
+                <Link key={l.href} href={l.href} className="text-sm font-medium transition-colors hover:opacity-70" style={{ color: NAVY }}>{l.label}</Link>
+              ))}
+              <div className="w-px h-5" style={{ background: '#e8e4dc' }} />
+              <Link href="/login" className="px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors" style={{ border: `2px solid ${NAVY}`, color: NAVY }}>Login</Link>
+              <Link href="/consultation" className="px-5 py-2.5 rounded-lg text-sm font-semibold text-white transition-colors" style={{ background: '#0f2744' }}>Book Demo →</Link>
             </div>
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
-                <Link href="/" className="text-gray-900 hover:text-[#2563eb] px-3 py-2 rounded-md text-sm font-medium">
-                  Home
-                </Link>
-                <Link href="/about" className="text-gray-600 hover:text-[#2563eb] px-3 py-2 rounded-md text-sm font-medium">
-                  About
-                </Link>
-                <Link href="/privacy" className="text-gray-600 hover:text-[#2563eb] px-3 py-2 rounded-md text-sm font-medium">
-                  Privacy
-                </Link>
-                <Link href="/terms" className="text-gray-600 hover:text-[#2563eb] px-3 py-2 rounded-md text-sm font-medium">
-                  Terms
-                </Link>
-                <Link href="/signup" className="bg-[#2563eb] text-white hover:bg-[#1d4ed8] px-4 py-2 rounded-md text-sm font-medium">
-                  Get Started
-                </Link>
-              </div>
+            <div className="md:hidden flex gap-2">
+              <Link href="/login" className="border px-3 py-1.5 rounded text-xs font-semibold" style={{ borderColor: NAVY, color: NAVY }}>Login</Link>
+              <Link href="/consultation" className="px-3 py-1.5 rounded text-xs font-semibold text-white" style={{ background: '#0f2744' }}>Book Demo</Link>
             </div>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="text-center">
-          <h1 className="text-5xl font-extrabold text-gray-900 sm:text-6xl md:text-7xl">
-            Verify Your Customers
-            <span className="block text-[#2563eb]">With Confidence</span>
-          </h1>
-          <p className="mt-6 max-w-2xl mx-auto text-xl text-gray-600">
-            Send verification and notifications easily. Ensure your customers are who they say they are with our SMS verification service.
-          </p>
-          <div className="mt-10 flex justify-center gap-4">
-            <Link
-              href="/signup"
-              className="px-8 py-4 bg-[#2563eb] text-white text-lg font-semibold rounded-lg hover:bg-[#1d4ed8] transition-colors shadow-lg"
-            >
-              Get Started Free
-            </Link>
-            <Link
-              href="/about"
-              className="px-8 py-4 bg-white text-[#2563eb] text-lg font-semibold rounded-lg hover:bg-gray-50 transition-colors border-2 border-[#2563eb]"
-            >
-              Learn More
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900">Why Choose ASC Verify?</h2>
-          <p className="mt-4 text-xl text-gray-600">
-            Trusted by businesses to verify customer identity and improve engagement
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          {/* Feature 1 */}
-          <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
-            <div className="flex justify-center mb-4">
-              <CheckCircle className="w-12 h-12 text-[#2563eb]" />
-            </div>
-            <h3 className="text-xl font-semibold text-gray-900 text-center mb-3">
-              Easy Verification
-            </h3>
-            <p className="text-gray-600 text-center">
-              Simple, user-friendly verification flow that customers can complete in seconds.
-            </p>
-          </div>
-
-          {/* Feature 2 */}
-          <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
-            <div className="flex justify-center mb-4">
-              <Zap className="w-12 h-12 text-[#2563eb]" />
-            </div>
-            <h3 className="text-xl font-semibold text-gray-900 text-center mb-3">
-              Lightning Fast
-            </h3>
-            <p className="text-gray-600 text-center">
-              Optimized for speed with page loads under 2 seconds, even on mobile networks.
-            </p>
-          </div>
-
-          {/* Feature 3 */}
-          <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
-            <div className="flex justify-center mb-4">
-              <Users className="w-12 h-12 text-[#2563eb]" />
-            </div>
-            <h3 className="text-xl font-semibold text-gray-900 text-center mb-3">
-              Multi-Brand Support
-            </h3>
-            <p className="text-gray-600 text-center">
-              Support multiple brands with customizable styling and white-label options.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Solutions Section */}
-      <section className="bg-white py-20">
+      {/* ── Hero: Split Layout ── */}
+      <section style={{ background: IVORY }} className="py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900">Our Solutions</h2>
-            <p className="mt-4 text-xl text-gray-600">
-              Streamline your verification and engagement process
-            </p>
-          </div>
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-          <div className="grid md:grid-cols-2 gap-16 items-start">
-            {/* Solutions List */}
-            <div className="space-y-12">
-              {/* Solution 1 */}
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Identity Verification</h3>
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  Begin by dispatching a straightforward verification request to your users, aiming to confirm their identity efficiently.
-                </p>
-              </div>
-
-              {/* Solution 2 */}
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Document Link</h3>
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  Distribute document links directly to your users for electronic signatures. This method significantly enhances conversion rates compared to email and other communication channels.
-                </p>
-              </div>
-
-              {/* Solution 3 */}
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Form Submission Process</h3>
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  Re-engage customers who have abandoned the form process by setting up automated messages designed to recapture their interest and complete their submissions.
-                </p>
-              </div>
-            </div>
-
-            {/* Single Image */}
-            <div className="rounded-lg overflow-hidden sticky top-8 flex items-start justify-center">
-              <Image 
-                src="/Phoneimage.png" 
-                alt="ASC Verify Solutions"
-                width={350} 
-                height={350}
-                className="w-auto h-auto object-contain max-w-full"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="bg-[#2563eb] rounded-2xl shadow-2xl overflow-hidden">
-          <div className="px-6 py-16 sm:px-12 sm:py-20 text-center">
-            <h2 className="text-4xl font-bold text-white mb-6">
-              Ready to Get Started?
-            </h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Join businesses that trust ASC Verify for SMS verification and improved customer engagement.
-            </p>
-            <Link
-              href="/signup"
-              className="inline-block px-8 py-4 bg-white text-[#2563eb] text-lg font-semibold rounded-lg hover:bg-gray-100 transition-colors shadow-lg"
-            >
-              Get Started Today
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-[#3b3a41] text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
+            {/* Left */}
             <div>
-              <h3 className="text-xl font-bold mb-4">ASC Verify</h3>
-              <p className="text-gray-400">
-                SMS verification for businesses.
+              <span className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-6" style={{ background: ACCENT_BG, color: ACCENT }}>
+                Exclusive Employee Benefit
+              </span>
+              <h1 className="text-5xl lg:text-6xl font-bold leading-tight mb-6" style={{ color: NAVY, fontFamily: 'Georgia, serif', letterSpacing: '-0.02em' }}>
+                Your personal concierge,{' '}
+                <span style={{ color: ACCENT }}>always on call.</span>
+              </h1>
+              <p className="text-lg text-gray-600 leading-relaxed mb-8 max-w-lg">
+                Professional assistance for all of life&apos;s tasks — from scheduling doctor appointments to ordering groceries, planning travel, and everything in between. Available exclusively to you as an employee benefit.
               </p>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Link href="/login" className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl text-base font-semibold transition-all" style={{ background: NAVY, color: '#fff' }}>
+                  Login <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link href="/consultation" className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl text-base font-semibold transition-all" style={{ border: `2px solid ${ACCENT}`, color: ACCENT, background: 'transparent' }}>
+                  For Employers — Book Demo
+                </Link>
+              </div>
+            </div>
+
+            {/* Right */}
+            <div className="relative">
+              <div className="absolute -inset-4 rounded-3xl opacity-40" style={{ background: `linear-gradient(135deg, ${ACCENT_BG}, #eff6ff)` }} />
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl" style={{ background: `linear-gradient(135deg, #0f2744 0%, #1e3a5f 100%)`, minHeight: '380px' }}>
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
+                  <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5" style={{ background: 'rgba(255,255,255,0.1)' }}>
+                    <Clock className="w-8 h-8 text-white" />
+                  </div>
+                  <p className="text-white text-xl font-semibold mb-2" style={{ fontFamily: 'Georgia, serif' }}>More evenings like this.</p>
+                  <p className="text-blue-200 text-sm">Less time on hold. More time with family.</p>
+                </div>
+                <div className="absolute bottom-5 left-5 right-5 rounded-xl p-4 shadow-lg" style={{ background: 'rgba(255,255,255,0.97)' }}>
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: ACCENT_BG }}>
+                      <MessageSquare className="w-4 h-4" style={{ color: ACCENT }} />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-xs font-semibold mb-1" style={{ color: NAVY }}>Your Concierge</p>
+                      <p className="text-xs text-gray-600 leading-relaxed">
+                        Dr. Patel appointment booked for Thursday 2pm. Prescription refill requested. Anything else?
+                      </p>
+                    </div>
+                  </div>
+                  <div className="mt-2 flex items-center gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5" style={{ color: ACCENT }} />
+                    <span className="text-xs" style={{ color: ACCENT }}>Handled in 8 minutes</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── How It Works ── */}
+      <section style={{ background: '#fff', borderTop: '1px solid #e8e4dc', borderBottom: '1px solid #e8e4dc' }} className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl font-bold mb-3" style={{ color: NAVY, fontFamily: 'Georgia, serif' }}>How it works</h2>
+            <p className="text-gray-500 text-lg">Simple, fast, and completely handled for you</p>
+          </div>
+          <div className="grid md:grid-cols-4 gap-6">
+            {steps.map((s, i) => (
+              <div key={i} className="relative text-center">
+                {i < steps.length - 1 && (
+                  <div className="hidden md:block absolute top-6 left-[calc(50%+2rem)] right-0 h-px" style={{ background: '#e8e4dc' }} />
+                )}
+                <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-bold" style={{ background: ACCENT_BG, color: ACCENT, border: `2px solid ${ACCENT}` }}>
+                  {s.n}
+                </div>
+                <h3 className="text-base font-bold mb-2" style={{ color: NAVY }}>{s.title}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Services Grid ── */}
+      <section style={{ background: IVORY }} className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl font-bold mb-3" style={{ color: NAVY, fontFamily: 'Georgia, serif' }}>We handle life&apos;s tasks</h2>
+            <p className="text-gray-500 text-lg">Submit any request and your dedicated concierge takes care of the rest</p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {services.map(({ icon: Icon, label, desc }) => (
+              <div key={label} className="rounded-2xl p-6 transition-all hover:-translate-y-1" style={{ background: '#fff', border: '1px solid #e8e4dc', boxShadow: '0 2px 8px rgba(15,39,68,0.06)' }}>
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={{ background: ACCENT_BG }}>
+                  <Icon className="w-6 h-6" style={{ color: ACCENT }} />
+                </div>
+                <h3 className="text-base font-bold mb-2" style={{ color: NAVY }}>{label}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Trust Pillars ── */}
+      <section style={{ background: '#fff', borderTop: '1px solid #e8e4dc' }} className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl font-bold mb-3" style={{ color: NAVY, fontFamily: 'Georgia, serif' }}>Why employees love it</h2>
+            <p className="text-gray-500 text-lg">Built around your needs, your schedule, and your privacy</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-10">
+            {[
+              { icon: Clock, title: 'Save hours every week', body: 'Stop spending your lunch break on hold or running errands after work. We give you your time back.' },
+              { icon: Star, title: 'Professional concierges', body: 'Trained specialists who know how to get things done right, the first time, every time.' },
+              { icon: Shield, title: 'Completely confidential', body: 'Your personal requests and information are always private and never shared with your employer.' },
+            ].map(({ icon: Icon, title, body }) => (
+              <div key={title} className="text-center">
+                <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5" style={{ background: ACCENT_BG }}>
+                  <Icon className="w-8 h-8" style={{ color: ACCENT }} />
+                </div>
+                <h3 className="text-xl font-bold mb-3" style={{ color: NAVY }}>{title}</h3>
+                <p className="text-gray-500 leading-relaxed">{body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA Section ── */}
+      <section style={{ background: NAVY }} className="py-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl font-bold text-white mb-4" style={{ fontFamily: 'Georgia, serif' }}>
+            Ready to reclaim your time?
+          </h2>
+          <p className="text-lg mb-10" style={{ color: '#94a3b8' }}>
+            Already enrolled? Log in to submit your first request.{' '}
+            Want to offer this to your team? Book a free employer demo.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Link href="/login" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-semibold text-white transition-all" style={{ border: '2px solid rgba(255,255,255,0.3)' }}>
+              Login <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link href="/consultation" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-semibold transition-all" style={{ background: ACCENT, color: '#fff' }}>
+              Book Employer Demo
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Footer ── */}
+      <footer style={{ background: '#0a1e38', color: '#94a3b8' }} className="py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-4 gap-8 mb-8">
+            <div>
+              <Image src="/ASC Verify Logo.png" alt="ASC Verify" width={160} height={54} className="h-10 w-auto mb-3 brightness-0 invert" />
+              <p className="text-sm leading-relaxed">Personal concierge and virtual assistance services for employees.</p>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Product</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/about" className="text-gray-400 hover:text-white">
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/signup" className="text-gray-400 hover:text-white">
-                    Get Started
-                  </Link>
-                </li>
+              <h4 className="text-white font-semibold mb-3 text-sm">Employee Access</h4>
+              <ul className="space-y-2 text-sm">
+                <li><Link href="/login" className="hover:text-white transition-colors">Login</Link></li>
+                <li><Link href="/login" className="hover:text-white transition-colors">Create Account</Link></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Legal</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/privacy" className="text-gray-400 hover:text-white">
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/terms" className="text-gray-400 hover:text-white">
-                    Terms of Service
-                  </Link>
-                </li>
+              <h4 className="text-white font-semibold mb-3 text-sm">Company</h4>
+              <ul className="space-y-2 text-sm">
+                <li><Link href="/product" className="hover:text-white transition-colors">Product</Link></li>
+                <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
+                <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
+                <li><Link href="/consultation" className="hover:text-white transition-colors">Book a Demo</Link></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Contact</h4>
-              <p className="text-gray-400">
-                support@ascverify.com
-              </p>
+              <h4 className="text-white font-semibold mb-3 text-sm">Legal & Contact</h4>
+              <ul className="space-y-2 text-sm">
+                <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
+                <li><Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
+                <li className="pt-1">support@ascverify.com</li>
+                <li>(844) 435-3969</li>
+              </ul>
             </div>
           </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 ASC Verify. All rights reserved.</p>
+          <div className="border-t border-white/10 pt-6 text-center text-xs">
+            &copy; 2025 ASC Verify. All rights reserved.
           </div>
         </div>
       </footer>
