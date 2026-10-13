@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     siteName: "ASC Verify",
     images: [
       {
-        url: "https://ascverify.com/ASC%20Verify.png",
+        url: "https://ascverify.com/ASC%20Verify%20Logo.png",
         width: 500,
         height: 167,
         alt: "ASC Verify",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ASC Verify | Personal Concierge & Virtual Assistance for Employees",
     description: "Professional personal concierge and virtual assistance services for employees.",
-    images: ["https://ascverify.com/ASC%20Verify.png"],
+    images: ["https://ascverify.com/ASC%20Verify%20Logo.png"],
   },
 };
 
