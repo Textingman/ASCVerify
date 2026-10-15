@@ -13,6 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  icons: {
+    icon: "/favicon.png",
+  },
   title: "ASC Verify | Personal Concierge & Virtual Assistance for Employees",
   description: "Professional personal concierge and virtual assistance services for employees. We handle life's tasks — doctor appointments, groceries, travel planning, errands, and more.",
   openGraph: {
