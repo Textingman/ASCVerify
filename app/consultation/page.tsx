@@ -192,8 +192,18 @@ export default function ConsultationPage() {
               </ul>
             </div>
           </div>
-          <div className="border-t border-white/10 pt-6 text-center text-xs">
-            &copy; 2025 ASC Verify. All rights reserved.
+          <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+            <span>&copy; 2025 ASC Verify. All rights reserved.</span>
+            <div className="flex items-center gap-4">
+              <a href="https://share.google/gkJZbE5yqyGnlMaPA" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:opacity-80 transition-opacity" title="Google My Business">
+                <img src="/google-logo.svg" alt="Google My Business" className="w-5 h-5" />
+                <span className="text-xs" style={{ color: '#94a3b8' }}>Google</span>
+              </a>
+              <a href="https://www.linkedin.com/company/asc-verify/?viewAsMember=true" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:opacity-80 transition-opacity" title="LinkedIn">
+                <img src="/linkedin-logo.svg" alt="LinkedIn" className="w-5 h-5" />
+                <span className="text-xs" style={{ color: '#94a3b8' }}>LinkedIn</span>
+              </a>
+            </div>
           </div>
         </div>
       </footer>

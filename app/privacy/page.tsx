@@ -84,10 +84,8 @@ export default function PrivacyPage() {
               <li>IP address and location data</li>
               <li>Usage data (pages visited, time spent, click patterns)</li>
             </ul>
-            <h3 className="font-semibold mb-2" style={{ color: NAVY }}>2.3 Phone Number Handling</h3>
-            <p className="mb-4"><strong>Important:</strong> We do NOT store phone numbers used in the verification process beyond what is necessary to deliver your concierge service. All tracking parameters are passed through without storing unnecessary personal identifiable information.</p>
-            <h3 className="font-semibold mb-2" style={{ color: NAVY }}>2.4 Mobile Information Sharing</h3>
-            <p><strong>No mobile information will be shared or sold to third parties for marketing purposes.</strong> We are committed to protecting your mobile information and will only use it for the purposes outlined in this Privacy Policy.</p>
+            <h3 className="font-semibold mb-2" style={{ color: NAVY }}>2.3 Mobile Information Sharing</h3>
+            <p className="mb-4"><strong>No mobile information will be shared or sold to third parties for marketing purposes.</strong> We are committed to protecting your mobile information and will only use it for the purposes outlined in this Privacy Policy.</p>
           </div>
 
           <div>
@@ -211,8 +209,18 @@ export default function PrivacyPage() {
               </ul>
             </div>
           </div>
-          <div className="border-t border-white/10 pt-6 text-center text-xs">
-            &copy; 2025 ASC Verify. All rights reserved.
+          <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+            <span>&copy; 2025 ASC Verify. All rights reserved.</span>
+            <div className="flex items-center gap-4">
+              <a href="https://share.google/gkJZbE5yqyGnlMaPA" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:opacity-80 transition-opacity" title="Google My Business">
+                <img src="/google-logo.svg" alt="Google My Business" className="w-5 h-5" />
+                <span className="text-xs" style={{ color: '#94a3b8' }}>Google</span>
+              </a>
+              <a href="https://www.linkedin.com/company/asc-verify/?viewAsMember=true" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:opacity-80 transition-opacity" title="LinkedIn">
+                <img src="/linkedin-logo.svg" alt="LinkedIn" className="w-5 h-5" />
+                <span className="text-xs" style={{ color: '#94a3b8' }}>LinkedIn</span>
+              </a>
+            </div>
           </div>
         </div>
       </footer>

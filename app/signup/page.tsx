@@ -56,7 +56,6 @@ export default function SignupPage() {
   };
   const handleStep2 = () => {
     setError('');
-    if (!su.phone) { setError('Please enter your mobile phone number.'); return; }
     setStep(3);
   };
   const handleStep3 = () => {
@@ -178,7 +177,7 @@ export default function SignupPage() {
                 <div className="mb-4 rounded-xl p-4" style={{ background: ACCENT_BG, border: `1px solid ${ACCENT}30` }}>
                   <Checkbox checked={su.smsOptIn} onChange={() => setSu({ ...su, smsOptIn: !su.smsOptIn })}>
                     <span>
-                      By checking this box and submitting this form, you agree to receive concierge service text messages from ASC Verify and agree to our <Link href="/terms" className="underline" style={{ color: NAVY }}>Terms &amp; Conditions</Link> and <Link href="/privacy" className="underline" style={{ color: NAVY }}>Privacy Policy</Link>. I understand I may opt out of SMS communication by replying &apos;STOP&apos;. Reply HELP or email <a href="mailto:support@ascverify.com" className="underline" style={{ color: NAVY }}>support@ascverify.com</a> for help. Message and Data rates may apply. Message frequency varies. Carriers are not liable for delayed or undelivered messages. Opting in to SMS is optional and not required to submit this form or to use our services. All messages will be handled by ASC Verify. I also agree to the <Link href="/terms" className="underline" style={{ color: NAVY }}>Terms of Service</Link> and <Link href="/privacy" className="underline" style={{ color: NAVY }}>Privacy Policy</Link>.
+                      By checking this box and submitting this form, you agree to receive concierge service and account notification text messages from ASC Verify and agree to our <Link href="/terms" className="underline" style={{ color: NAVY }}>Terms &amp; Conditions</Link> and <Link href="/privacy" className="underline" style={{ color: NAVY }}>Privacy Policy</Link>. I understand I may opt out of SMS communication by replying &apos;STOP&apos;. Reply HELP for assistance or email <a href="mailto:support@ascverify.com" className="underline" style={{ color: NAVY }}>support@ascverify.com</a> for help. Message and Data rates may apply. Message frequency varies. Carriers are not liable for delayed or undelivered messages. Opting in to SMS is optional and not required to submit this form or to use our services. All messages will be handled by ASC Verify. I also agree to the <Link href="/terms" className="underline" style={{ color: NAVY }}>Terms of Service</Link> and <Link href="/privacy" className="underline" style={{ color: NAVY }}>Privacy Policy</Link>.
                     </span>
                   </Checkbox>
                 </div>

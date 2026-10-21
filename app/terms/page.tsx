@@ -105,9 +105,13 @@ export default function TermsPage() {
           <div>
             <h2 className="text-xl font-bold mb-3" style={{ color: NAVY }}>5. SMS Communications</h2>
             <h3 className="font-semibold mb-2" style={{ color: NAVY }}>5.1 Opt-In Requirements</h3>
-            <p className="mb-3">By providing your mobile phone number and opting in during registration, you consent to receive SMS messages from ASC Verify related to your concierge requests. Message and data rates may apply.</p>
+            <p className="mb-3">By providing your mobile phone number and opting in during registration, you consent to receive SMS messages from ASC Verify related to your concierge requests and account notifications. Message and data rates may apply. Message frequency varies.</p>
             <h3 className="font-semibold mb-2" style={{ color: NAVY }}>5.2 Opt-Out</h3>
-            <p>You may opt out of SMS communications at any time by replying STOP to any message or contacting us at support@ascverify.com.</p>
+            <p className="mb-3">You may opt out of SMS communications at any time by replying STOP to any message or contacting us at support@ascverify.com.</p>
+            <h3 className="font-semibold mb-2" style={{ color: NAVY }}>5.3 Help</h3>
+            <p className="mb-3">Reply HELP for assistance or contact support@ascverify.com.</p>
+            <h3 className="font-semibold mb-2" style={{ color: NAVY }}>5.4 Carrier Liability</h3>
+            <p>Carriers are not liable for delayed or undelivered messages.</p>
           </div>
 
           <div>
@@ -204,8 +208,18 @@ export default function TermsPage() {
               </ul>
             </div>
           </div>
-          <div className="border-t border-white/10 pt-6 text-center text-xs">
-            &copy; 2025 ASC Verify. All rights reserved.
+          <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+            <span>&copy; 2025 ASC Verify. All rights reserved.</span>
+            <div className="flex items-center gap-4">
+              <a href="https://share.google/gkJZbE5yqyGnlMaPA" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:opacity-80 transition-opacity" title="Google My Business">
+                <img src="/google-logo.svg" alt="Google My Business" className="w-5 h-5" />
+                <span className="text-xs" style={{ color: '#94a3b8' }}>Google</span>
+              </a>
+              <a href="https://www.linkedin.com/company/asc-verify/?viewAsMember=true" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:opacity-80 transition-opacity" title="LinkedIn">
+                <img src="/linkedin-logo.svg" alt="LinkedIn" className="w-5 h-5" />
+                <span className="text-xs" style={{ color: '#94a3b8' }}>LinkedIn</span>
+              </a>
+            </div>
           </div>
         </div>
       </footer>
