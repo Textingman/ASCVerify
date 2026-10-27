@@ -81,7 +81,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-semibold text-xs uppercase tracking-widest mb-1" style={{ color: ACCENT }}>Phone</p>
-                    <a href="tel:+18444353969" className="hover:underline" style={{ color: NAVY }}>(844) 435-3969</a>
+                    <a href="tel:+18445461613" className="hover:underline" style={{ color: NAVY }}>(844) 546-1613</a>
                   </div>
                   <div>
                     <p className="font-semibold text-xs uppercase tracking-widest mb-1" style={{ color: ACCENT }}>Mailing address</p>
@@ -111,7 +111,7 @@ export default function ContactPage() {
                 <div className="rounded-2xl p-10 text-center" style={{ background: '#fff', border: '1px solid #e8e4dc' }}>
                   <div className="text-5xl mb-4">✅</div>
                   <h3 className="text-xl font-bold mb-2" style={{ color: NAVY }}>Message received!</h3>
-                  <p className="text-gray-600">We&apos;ll get back to you within one business day. If it&apos;s urgent, call us at (844) 435-3969.</p>
+                  <p className="text-gray-600">We&apos;ll get back to you within one business day. If it&apos;s urgent, call us at (844) 546-1613.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="rounded-2xl p-8 space-y-5" style={{ background: '#fff', border: '1px solid #e8e4dc' }}>
@@ -221,7 +221,7 @@ export default function ContactPage() {
                 <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
                 <li><Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
                 <li className="pt-1">support@ascverify.com</li>
-                <li>(844) 435-3969</li>
+                <li>(844) 546-1613</li>
               </ul>
             </div>
           </div>

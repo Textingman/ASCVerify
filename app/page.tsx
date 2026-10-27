@@ -244,7 +244,7 @@ export default function HomePage() {
                 <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
                 <li><Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
                 <li className="pt-1">support@ascverify.com</li>
-                <li>(844) 435-3969</li>
+                <li>(844) 546-1613</li>
               </ul>
             </div>
           </div>

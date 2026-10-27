@@ -101,7 +101,7 @@ export default function AboutPage() {
                 <a href="mailto:support@ascverify.com" className="hover:underline" style={{ color: ACCENT }}>support@ascverify.com</a>
               </p>
               <p>
-                <a href="tel:+18444353969" className="hover:underline" style={{ color: ACCENT }}>(844) 435-3969</a>
+                <a href="tel:+18445461613" className="hover:underline" style={{ color: ACCENT }}>(844) 546-1613</a>
               </p>
             </div>
           </div>
@@ -146,7 +146,7 @@ export default function AboutPage() {
                 <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
                 <li><Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
                 <li className="pt-1">support@ascverify.com</li>
-                <li>(844) 435-3969</li>
+                <li>(844) 546-1613</li>
               </ul>
             </div>
           </div>

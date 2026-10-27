@@ -169,7 +169,7 @@ export default function PrivacyPage() {
             <div className="rounded-2xl p-6" style={{ background: '#fff', border: '1px solid #e8e4dc' }}>
               <p className="mb-2 text-sm"><strong style={{ color: NAVY }}>Email:</strong> <a href="mailto:privacy@ascverify.com" className="hover:underline" style={{ color: ACCENT }}>privacy@ascverify.com</a></p>
               <p className="mb-2 text-sm"><strong style={{ color: NAVY }}>Support:</strong> <a href="mailto:support@ascverify.com" className="hover:underline" style={{ color: ACCENT }}>support@ascverify.com</a></p>
-              <p className="text-sm"><strong style={{ color: NAVY }}>Phone:</strong> <a href="tel:+18444353969" className="hover:underline" style={{ color: ACCENT }}>(844) 435-3969</a></p>
+              <p className="text-sm"><strong style={{ color: NAVY }}>Phone:</strong> <a href="tel:+18445461613" className="hover:underline" style={{ color: ACCENT }}>(844) 546-1613</a></p>
             </div>
           </div>
         </div>
@@ -205,7 +205,7 @@ export default function PrivacyPage() {
                 <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
                 <li><Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
                 <li className="pt-1">support@ascverify.com</li>
-                <li>(844) 435-3969</li>
+                <li>(844) 546-1613</li>
               </ul>
             </div>
           </div>

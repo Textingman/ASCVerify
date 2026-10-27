@@ -386,7 +386,7 @@ export default function ProductPage() {
               <ul className="space-y-2 text-sm">
                 {FOOTER_LINKS.legal.map(l => <li key={l.href}><Link href={l.href} className="hover:text-white transition-colors">{l.label}</Link></li>)}
                 <li className="pt-1">support@ascverify.com</li>
-                <li>(844) 435-3969</li>
+                <li>(844) 546-1613</li>
               </ul>
             </div>
           </div>
